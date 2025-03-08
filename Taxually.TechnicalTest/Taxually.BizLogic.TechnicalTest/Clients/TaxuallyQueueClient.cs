@@ -1,6 +1,8 @@
-﻿namespace Taxually.BizLogic.TechnicalTest.Clients
+﻿using Taxually.Contracts.TechnicalTest;
+
+namespace Taxually.BizLogic.TechnicalTest.Clients
 {
-    internal class TaxuallyQueueClient
+    internal class TaxuallyQueueClient : ITaxuallyQueueClient
     {
         public Task EnqueueAsync<TPayload>(string queueName, TPayload payload)
         {

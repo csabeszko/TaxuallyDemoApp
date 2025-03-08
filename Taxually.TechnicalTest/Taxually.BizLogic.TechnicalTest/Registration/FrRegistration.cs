@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using Taxually.BizLogic.TechnicalTest.Clients;
+using Taxually.Contracts.TechnicalTest;
 using Taxually.TechnicalTest.Contracts;
 
 namespace Taxually.BizLogic.TechnicalTest.Registration
@@ -9,6 +9,11 @@ namespace Taxually.BizLogic.TechnicalTest.Registration
     /// </summary>
     internal class FrRegistration : IVatRegistration
     {
+        public FrRegistration(ITaxuallyQueueClient taxuallyQueueClient)
+        {
+            myTaxuallyQueueClient = taxuallyQueueClient;
+        }
+
         public async Task RegisterVatAsync(VatRegistrationRequest request)
         {
             // France requires an excel spreadsheet to be uploaded to register for a VAT number
@@ -16,10 +21,12 @@ namespace Taxually.BizLogic.TechnicalTest.Registration
             csvBuilder.AppendLine("CompanyName,CompanyId");
             csvBuilder.AppendLine($"{request.CompanyName}{request.CompanyId}");
             var csv = Encoding.UTF8.GetBytes(csvBuilder.ToString());
-            var excelQueueClient = new TaxuallyQueueClient();
             
             // Queue file to be processed
-            await excelQueueClient.EnqueueAsync("vat-registration-csv", csv);
+            await myTaxuallyQueueClient.EnqueueAsync(myQueueName, csv);
         }
+
+        private readonly ITaxuallyQueueClient myTaxuallyQueueClient;
+        private const string myQueueName = "vat-registration-csv";
     }
 }

@@ -1,4 +1,5 @@
 using Taxually.BizLogic.TechnicalTest;
+using Taxually.BizLogic.TechnicalTest.Clients;
 using Taxually.BizLogic.TechnicalTest.Registration;
 using Taxually.Contracts.TechnicalTest;
 using Taxually.TechnicalTest.Contracts;
@@ -12,6 +13,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddTransient<ITaxuallyHttpClient, TaxuallyHttpClient>();
+builder.Services.AddTransient<ITaxuallyQueueClient, TaxuallyQueueClient>();
 builder.Services.AddTransient<IVatRegistration, DeRegistration>();
 builder.Services.AddTransient<IVatRegistration, FrRegistration>();
 builder.Services.AddTransient<IVatRegistration, GbRegistration>();
