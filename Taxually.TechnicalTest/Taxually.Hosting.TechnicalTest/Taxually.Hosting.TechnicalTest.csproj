@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -12,6 +12,11 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="7.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Taxually.BizLogic.TechnicalTest\Taxually.BizLogic.TechnicalTest.csproj" />
+    <ProjectReference Include="..\Taxually.Contracts.TechnicalTest\Taxually.Contracts.TechnicalTest.csproj" />
   </ItemGroup>
 
 </Project>
