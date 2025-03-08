@@ -9,6 +9,6 @@
         /// Registers a company for a VAT number
         /// </summary>
         /// <param name="request"></param>
-        public Task RegisterVATAsync(VatRegistrationRequest request);
+        public Task RegisterVatAsync(VatRegistrationRequest request);
     }
 }

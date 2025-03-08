@@ -22,7 +22,7 @@ namespace Taxually.TechnicalTest.Controllers
             try
             {
                 IVatRegistration registractionComponent = myVatRegistrationFactory.CreateRegistrationComponent(request.Country);
-                await registractionComponent.RegisterVATAsync(request);
+                await registractionComponent.RegisterVatAsync(request);
 
                 return Ok($"Successful VAT registration: {request.Country}");
             }

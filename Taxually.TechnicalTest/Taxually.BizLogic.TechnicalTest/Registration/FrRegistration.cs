@@ -9,7 +9,7 @@ namespace Taxually.BizLogic.TechnicalTest.Registration
     /// </summary>
     internal class FrRegistration : IVatRegistration
     {
-        public async Task RegisterVATAsync(VatRegistrationRequest request)
+        public async Task RegisterVatAsync(VatRegistrationRequest request)
         {
             // France requires an excel spreadsheet to be uploaded to register for a VAT number
             var csvBuilder = new StringBuilder();

@@ -8,7 +8,7 @@ namespace Taxually.BizLogic.TechnicalTest.Registration
     /// </summary>
     internal class GbRegistration : IVatRegistration
     {
-        public async Task RegisterVATAsync(VatRegistrationRequest request)
+        public async Task RegisterVatAsync(VatRegistrationRequest request)
         {
             // UK has an API to register for a VAT number
             var httpClient = new TaxuallyHttpClient();

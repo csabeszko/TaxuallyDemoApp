@@ -9,7 +9,7 @@ namespace Taxually.BizLogic.TechnicalTest.Registration
     /// </summary>
     internal class DeRegistration : IVatRegistration
     {
-        public async Task RegisterVATAsync(VatRegistrationRequest request)
+        public async Task RegisterVatAsync(VatRegistrationRequest request)
         {
             // Germany requires an XML document to be uploaded to register for a VAT number
             using (var stringwriter = new StringWriter())
