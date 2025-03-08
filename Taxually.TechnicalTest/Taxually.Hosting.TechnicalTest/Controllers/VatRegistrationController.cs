@@ -4,7 +4,7 @@ using Taxually.TechnicalTest.Contracts;
 
 namespace Taxually.TechnicalTest.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/vat")]
     [ApiController]
     public class VatRegistrationController : ControllerBase
     {
@@ -16,7 +16,7 @@ namespace Taxually.TechnicalTest.Controllers
         /// <summary>
         /// Registers a company for a VAT number in a given country
         /// </summary>
-        [HttpPost]
+        [HttpPost("register")]
         public async Task<ActionResult> Post([FromBody] VatRegistrationRequest request)
         {
             try

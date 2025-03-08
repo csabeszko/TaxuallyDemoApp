@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <InternalsVisibleTo Include="Taxually.Hosting.TechnicalTest_iTests" />
+  </ItemGroup>
+    
+  <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="7.3.1" />
   </ItemGroup>
 
